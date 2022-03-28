@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PROFILE_REACT: ${{ fromJSON('{"main":"development","develop":"development"}')[github.ref_name] }}
+      PROFILE_REACT_BASEADO_NA_BRANCH: ${{ fromJSON('{"main":"development","develop":"development"}')[github.ref_name] }}
     strategy:
       matrix:
         node-version: [16.x]
@@ -26,9 +26,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
+
       - name: Checando versão yarn
         run: yarn --version
+
       - name: Branch atual
         run: echo $GITHUB_REF_NAME
+
       - name: Profile react a ser utilizado
-        run: echo $PROFILE_REACT
+        run: echo $PROFILE_REACT_BASEADO_NA_BRANCH
+
+      - name: Buildando a aplicação react com base na branch
+        run: yarn build --profile $PROFILE_REACT_BASEADO_NA_BRANCH
