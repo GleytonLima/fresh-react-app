@@ -36,5 +36,8 @@ jobs:
       - name: Profile react a ser utilizado
         run: echo $PROFILE_REACT_BASEADO_NA_BRANCH
 
+      - name: Instalando dependencias
+        run: npm ci
+
       - name: Buildando a aplicação react com base na branch
         run: yarn build --profile $PROFILE_REACT_BASEADO_NA_BRANCH
