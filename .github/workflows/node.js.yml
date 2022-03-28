@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PROFILE_REACT_BASEADO_NA_BRANCH: ${{ fromJSON('{"main":"development","develop":"development"}')[github.ref_name] }}
+      SUFIXO_ENV_BASEADO_NA_BRANCH: ${{ fromJSON('{"main":"_PRD","develop":"_DEV"}')[github.ref_name] }}
     strategy:
       matrix:
         node-version: [16.x]
@@ -35,6 +36,14 @@ jobs:
 
       - name: Profile react a ser utilizado
         run: echo $PROFILE_REACT_BASEADO_NA_BRANCH
+
+      - name: Sufixo para buscar secrets
+        run: echo $SUFIXO_ENV_BASEADO_NA_BRANCH
+
+      - name: Exemplo de busca de secrets usando um sufixo
+        env:
+          SUPER_SECRETO_SECRET_NAME: SUPER_SECRETO${{ env.SUFIXO_ENV_BASEADO_NA_BRANCH }}
+        run: echo ${{ secrets[env.SUPER_SECRETO_SECRET_NAME] }}
 
       - name: Instalando dependencias
         run: yarn install --frozen-lockfile
