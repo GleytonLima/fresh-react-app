@@ -50,7 +50,7 @@ jobs:
         run: |
           echo "O nome do segredo é ${{env.SUPER_SECRETO_SECRET_NAME}}"
           echo "Salvando o valor do segredo em arquivo"
-          echo $SUPER_SECRETO_VALOR >> src/.env
+          printf $SUPER_SECRETO_VALOR >> src/.env
           echo "Imprimindo valor do segredo"
           cat src/.env
 
