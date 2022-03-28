@@ -20,8 +20,6 @@ jobs:
       matrix:
         node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    env:
-      SUPER_SECRETO_SECRET_NAME: SUPER_SECRETO${{ env.SUFIXO_ENV_BASEADO_NA_BRANCH }}
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -48,6 +46,7 @@ jobs:
 
       - name: Usando o valor dos secrets (pre-ri-go)
         env:
+          SUPER_SECRETO_SECRET_NAME: SUPER_SECRETO${{ env.SUFIXO_ENV_BASEADO_NA_BRANCH }}
           SUPER_SECRETO_VALOR: ${{ secrets[env.SUPER_SECRETO_SECRET_NAME] }}
         run: |
           echo "Salvando o valor do segredo em arquivo"
