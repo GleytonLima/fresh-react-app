@@ -37,7 +37,7 @@ jobs:
         run: echo $PROFILE_REACT_BASEADO_NA_BRANCH
 
       - name: Instalando dependencias
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Buildando a aplicação react com base na branch
         run: yarn build --profile $PROFILE_REACT_BASEADO_NA_BRANCH
