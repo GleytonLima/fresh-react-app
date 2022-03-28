@@ -43,7 +43,7 @@ jobs:
       - name: Exemplo de busca de secrets usando um sufixo
         env:
           SUPER_SECRETO_SECRET_NAME: SUPER_SECRETO${{ env.SUFIXO_ENV_BASEADO_NA_BRANCH }}
-        run: echo "O nome do segredo é $SUPER_SECRETO_SECRET_NAME e seu valor é ${{ secrets[env.SUPER_SECRETO_SECRET_NAME] }}"
+        run: echo "O nome do segredo é ${{env.SUPER_SECRETO_SECRET_NAME}} e seu valor é ${{ secrets[env.SUPER_SECRETO_SECRET_NAME] }}"
 
       - name: Instalando dependencias
         run: yarn install --frozen-lockfile
