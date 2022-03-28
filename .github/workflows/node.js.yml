@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PROFILE_REACT: ${{ fromJSON('{"main":"development","develop":"development"}')[$GITHUB_REF_NAME] }}
+      PROFILE_REACT: ${{ fromJSON('{"main":"development","develop":"development"}')[github.ref_name] }}
     strategy:
       matrix:
         node-version: [16.x]
