@@ -25,4 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: yarn --version
+      - name: Checando versão yarn
+        run: yarn --version
+      - name: Branch atual
+        run: echo $GITHUB_REF_NAME
