@@ -43,12 +43,12 @@ jobs:
       - name: Definindo nome dos secrets
         run: |
           echo "SUPER_SECRETO_SECRET_NAME=SUPER_SECRETO${{ env.SUFIXO_ENV_BASEADO_NA_BRANCH }}" >> $GITHUB_ENV
-          echo "O nome do segredo é ${{env.SUPER_SECRETO_SECRET_NAME}}"
 
       - name: Usando o valor dos secrets (pre-ri-go)
         env:
           SUPER_SECRETO_VALOR: ${{ secrets[env.SUPER_SECRETO_SECRET_NAME] }}
         run: |
+          echo "O nome do segredo é ${{env.SUPER_SECRETO_SECRET_NAME}}"
           echo "Salvando o valor do segredo em arquivo"
           echo $SUPER_SECRETO_VALOR >> src/.env
           echo "Imprimindo valor do segredo"
