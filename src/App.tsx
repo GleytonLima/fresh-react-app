@@ -3,8 +3,6 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  console.log("Hello from App.js");
-  console.log(process.env.TESTE);
   return (
     <div className="App">
       <header className="App-header">
@@ -18,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React {process.env.TESTE}
         </a>
       </header>
     </div>

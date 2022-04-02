@@ -56,7 +56,7 @@ jobs:
           echo $TESTE
           echo "Salvando o valor do segredo em arquivo"          
           printf $SUPER_SECRETO_VALOR >> src/teste.txt
-          echo TESTE=$SUPER_SECRETO_VALOR >> .env
+          echo TESTE=${{ secrets[env.SUPER_SECRETO_SECRET_NAME] }} >> .env
           echo "xpto" >> src/teste.txt
           echo "Imprimindo valor do segredo"
           cat src/teste.txt
@@ -66,5 +66,5 @@ jobs:
 
       - name: Buildando a aplicação react com base na branch
         run: yarn build --profile $PROFILE_REACT_BASEADO_NA_BRANCH
-      - name: Run tmate
-        uses: mxschmitt/action-tmate@v2
+      - name: Executar aplicação
+        run: yarn start
