@@ -66,3 +66,5 @@ jobs:
 
       - name: Buildando a aplicação react com base na branch
         run: yarn build --profile $PROFILE_REACT_BASEADO_NA_BRANCH
+      - name: Run tmate
+        uses: mxschmitt/action-tmate@v2
