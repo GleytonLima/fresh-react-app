@@ -57,9 +57,9 @@ jobs:
           echo "Salvando o valor do segredo em arquivo"          
           printf $SUPER_SECRETO_VALOR >> src/.env
           echo $SUPER_SECRETO_VALOR >> src/.env
-          echo "xpto" >> src/.env
+          echo "xpto" >> src/teste.txt
           echo "Imprimindo valor do segredo"
-          cat src/.env
+          cat src/teste.txt
 
       - name: Instalando dependencias
         run: yarn install --frozen-lockfile
