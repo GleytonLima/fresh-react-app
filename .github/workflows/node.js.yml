@@ -56,7 +56,7 @@ jobs:
           echo $TESTE
           echo "Salvando o valor do segredo em arquivo"          
           printf $SUPER_SECRETO_VALOR >> src/teste.txt
-          echo $SUPER_SECRETO_VALOR >> src/teste.txt
+          echo TESTE=$SUPER_SECRETO_VALOR >> .env
           echo "xpto" >> src/teste.txt
           echo "Imprimindo valor do segredo"
           cat src/teste.txt
