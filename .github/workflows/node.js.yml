@@ -43,6 +43,8 @@ jobs:
       - name: Definindo nome dos secrets
         run: |
           echo "SUPER_SECRETO_SECRET_NAME=SUPER_SECRETO${{ env.SUFIXO_ENV_BASEADO_NA_BRANCH }}" >> $GITHUB_ENV
+          echo "Tentando imprimir GITHUB ENV"
+          echo $GITHUB_ENV
 
       - name: Usando o valor dos secrets (pre-ri-go)
         env:
