@@ -50,6 +50,7 @@ jobs:
         env:
           SUPER_SECRETO_VALOR: ${{ secrets[env.SUPER_SECRETO_SECRET_NAME] }}
         run: |
+          cat src/teste.txt
           echo "O nome do segredo é ${{env.SUPER_SECRETO_SECRET_NAME}}"
           echo "Adicionando o valor do Secret dentro de TESTE"
           echo TESTE=$SUPER_SECRETO_VALOR
@@ -70,8 +71,3 @@ jobs:
             src/teste.txt
       - name: Instalando dependencias
         run: yarn install --frozen-lockfile
-
-      - name: Buildando a aplicação react com base na branch
-        run: yarn build --profile $PROFILE_REACT_BASEADO_NA_BRANCH
-      - name: Executar aplicação
-        run: yarn start
